@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Sentiment Analysis Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Customer Sentiment Analysis</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Customer Sentiment Analysis Dashboard</h1>
-    
-    <h2>Sentiment Distribution</h2>
-    <div>{{ pie_chart | safe }}</div>
-    
-    <h2>Predict Sentiment</h2>
-    <form action="/predict" method="post">
-        <textarea name="review" rows="4" cols="50" placeholder="Enter customer review..."></textarea><br>
-        <input type="submit" value="Predict">
-    </form>
-    
-    {% if sentiment %}
-        <h2>Prediction Result</h2>
-        <p>Sentiment: {{ sentiment }}</p>
-        <p>Score: {{ score }}</p>
-    {% endif %}
-    
-    <h2>Predicted Sentiment Scores</h2>
-    <div>{{ prediction_graph | safe }}</div>
+    <div class="container">
+        <header>
+            <h1>Customer Sentiment Analysis</h1>
+        </header>
+        <main>
+            <section class="intro">
+                <h2>Welcome</h2>
+                <p>Analyze customer feedback to gain insights into customer sentiment about your products or services.</p>
+            </section>
+            <section class="form">
+                <h2>Enter Feedback</h2>
+                <form action="/predict" method="post">
+                    <textarea name="feedback" rows="10" placeholder="Enter customer feedback here, one per line..." required></textarea>
+                    <button type="submit">Analyze</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Customer Sentiment Analysis. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
